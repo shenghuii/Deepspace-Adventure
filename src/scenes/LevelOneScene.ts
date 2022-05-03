@@ -52,10 +52,13 @@ export default class LevelOneScene extends Phaser.Scene {
     this.player.setCollideWorldBounds(true);
     this._createAnimations();
     this.cameras.main.startFollow(this.player, true);
-    // this.physics.add.collider(this.player, this.platforms);
+
+    // add collision
     this.physics.add.collider(this.dangerObjects, this.needs);
     this.physics.add.collider(this.dangerObjects, this.dangerObjects);
     this.physics.add.collider(this.needs, this.needs);
+
+    // add destroy event
     this.physics.add.overlap(
       this.player,
       this.needs,
@@ -73,6 +76,7 @@ export default class LevelOneScene extends Phaser.Scene {
     this.cursors = this.input.keyboard.createCursorKeys();
   }
   update() {
+    // add keyboard control
     if (this.cursors.left.isDown) {
       this.player.setVelocityX(-100);
       this.player.anims.play('character-walking', true);
@@ -99,6 +103,7 @@ export default class LevelOneScene extends Phaser.Scene {
     }
   }
   _createAnimations() {
+    // create animations
     this.anims.create({
       key: 'character-walking',
       frames: this.anims.generateFrameNames('character', {
@@ -115,10 +120,12 @@ export default class LevelOneScene extends Phaser.Scene {
       frameRate: 1,
     });
   }
+  // energy lost if
   hitByRock = (_player: any, dangerObjects: { destroy: () => void }) => {
     dangerObjects.destroy();
     this.events.emit('energy', 20);
   };
+  // supply gain if
   pickUpSupply = (_player: any, needs: { destroy: () => void }) => {
     needs.destroy();
     this.events.emit('supply', 1);
