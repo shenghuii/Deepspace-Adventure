@@ -12,7 +12,7 @@ export default class Needs extends Phaser.Physics.Arcade.Image {
       x = Phaser.Math.Between(0, 1600);
     }
     if (y === -2) {
-      y = Phaser.Math.Between(0, 1400);
+      y = Phaser.Math.Between(0, 1000);
     }
     super(scene, x, y, texture);
     this.scene.add.existing(this);
