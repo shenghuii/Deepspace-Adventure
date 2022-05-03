@@ -1,4 +1,4 @@
-import 'Phaser';
+import 'phaser';
 import LevelOneScene from './scenes/LevelOneScene';
 import LevelSelectScene from './scenes/LevelSelectScene';
 import LoadingScreenScene from './scenes/LoadingScreenScene';
