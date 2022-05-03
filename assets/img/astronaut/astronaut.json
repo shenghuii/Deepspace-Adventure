@@ -1,0 +1,145 @@
+{
+	"textures": [
+		{
+			"image": "astronaut",
+			"format": "RGBA8888",
+			"size": {
+				"w": 369,
+				"h": 114
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "character-walk-02",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 70,
+						"h": 114
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 1,
+						"w": 69,
+						"h": 111
+					},
+					"frame": {
+						"x": 0,
+						"y": 0,
+						"w": 69,
+						"h": 111
+					}
+				},
+				{
+					"filename": "character-walk-01",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 70,
+						"h": 114
+					},
+					"spriteSourceSize": {
+						"x": 14,
+						"y": 1,
+						"w": 50,
+						"h": 113
+					},
+					"frame": {
+						"x": 69,
+						"y": 0,
+						"w": 50,
+						"h": 113
+					}
+				},
+				{
+					"filename": "character-walk-04",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 70,
+						"h": 114
+					},
+					"spriteSourceSize": {
+						"x": 11,
+						"y": 1,
+						"w": 54,
+						"h": 113
+					},
+					"frame": {
+						"x": 119,
+						"y": 0,
+						"w": 54,
+						"h": 113
+					}
+				},
+				{
+					"filename": "character-walk-05",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 70,
+						"h": 114
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 1,
+						"w": 69,
+						"h": 113
+					},
+					"frame": {
+						"x": 173,
+						"y": 0,
+						"w": 69,
+						"h": 113
+					}
+				},
+				{
+					"filename": "character-walk-06",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 70,
+						"h": 114
+					},
+					"spriteSourceSize": {
+						"x": 2,
+						"y": 1,
+						"w": 63,
+						"h": 113
+					},
+					"frame": {
+						"x": 242,
+						"y": 0,
+						"w": 63,
+						"h": 113
+					}
+				},
+				{
+					"filename": "character-walk-03",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 70,
+						"h": 114
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 0,
+						"w": 64,
+						"h": 114
+					},
+					"frame": {
+						"x": 305,
+						"y": 0,
+						"w": 64,
+						"h": 114
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "http://free-tex-packer.com",
+		"version": "0.6.7"
+	}
+}
