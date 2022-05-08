@@ -12,11 +12,16 @@ export default class UIScene extends Phaser.Scene {
     this.energy = 100;
     this.supply = 0;
 
-    this.add.text(300, 50, `Avoid the rocks and waste debris!`, {
-      font: '36px Amatic SC',
-    });
+    this.add.text(
+      300,
+      60,
+      `Avoid rocks and debris, each will lower your health by 20pts, 0 energy leads to fail`,
+      {
+        font: '24px Amatic SC',
+      }
+    );
     this.add.text(300, 100, `Go find 2 supply boxes to pass!`, {
-      font: '36px Amatic SC',
+      font: '24px Amatic SC',
     });
     const energyText = this.add.text(300, 150, `Energy: ${this.energy}`, {
       font: '36px Amatic SC',

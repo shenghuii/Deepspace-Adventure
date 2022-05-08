@@ -14,7 +14,7 @@ const config = {
     default: 'arcade',
     arcade: {
       gravity: { x: 0, y: 0 },
-      debug: true,
+      debug: false,
     },
   },
   scale: { parent: 'mygame', autoCenter: Phaser.Scale.CENTER_BOTH },

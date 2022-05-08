@@ -5,6 +5,10 @@ export default class PreloaderScene extends Phaser.Scene {
   preload() {
     // add bg music
     this.load.audio('spacebgm', './assets/sound/spacefantasy.mp3');
+    // add hit and collect sound effect
+    this.load.audio('hitsound', './assets/sound/hit.wav');
+    this.load.audio('collectsound', './assets/sound/collect.mp3');
+
     // prefix
     // this.load.setBaseURL('./assets/img/');
     // add enter button

@@ -7,6 +7,8 @@ export default class LevelOneScene extends Phaser.Scene {
   player!: Phaser.Types.Physics.Arcade.SpriteWithDynamicBody;
   cursors!: Phaser.Types.Input.Keyboard.CursorKeys;
   gamebgm!: Phaser.Sound.BaseSound;
+  hitsound!: Phaser.Sound.BaseSound;
+  collectsound!: Phaser.Sound.BaseSound;
 
   constructor() {
     super({ key: 'LevelOneScene' });
@@ -19,8 +21,12 @@ export default class LevelOneScene extends Phaser.Scene {
     this.add.image(1600, 1200, 'startpoint');
 
     // set music
-    this.gamebgm = this.sound.add('spacebgm', { volume: 0.2 });
+    this.gamebgm = this.sound.add('spacebgm', { volume: 0.1 });
     this.gamebgm.play();
+
+    // set sound effect
+    this.hitsound = this.sound.add('hitsound', { volume: 0.1, loop: false });
+    this.collectsound = this.sound.add('collectsound', { loop: false });
 
     // dangerobject
     this.dangerObjects = this.physics.add.group({
@@ -39,6 +45,9 @@ export default class LevelOneScene extends Phaser.Scene {
     this.dangerObjects.get(-1, -1, 'meteorite2');
     this.dangerObjects.get(-1, -1, 'meteorite2');
     this.dangerObjects.get(-1, -1, 'meteorite2');
+    this.dangerObjects.get(-2, -2, 'waste-debris1');
+    this.dangerObjects.get(-2, -2, 'waste-debris2');
+    this.dangerObjects.get(-2, -2, 'waste-debris3');
     this.dangerObjects.get(-2, -2, 'waste-debris1');
     this.dangerObjects.get(-2, -2, 'waste-debris2');
     this.dangerObjects.get(-2, -2, 'waste-debris3');
@@ -64,20 +73,25 @@ export default class LevelOneScene extends Phaser.Scene {
     this.physics.add.collider(this.dangerObjects, this.dangerObjects);
     this.physics.add.collider(this.needs, this.needs);
 
-    // add object destroy event
+    // add hit event and collect event with sound effects
     this.physics.add.overlap(
       this.player,
       this.needs,
+      (_player, _needs) => {
+        this.collectsound.play();
+      },
       this.pickUpSupply,
-      void 0,
-      this
+      void 0
     );
+
     this.physics.add.overlap(
       this.player,
       this.dangerObjects,
+      (_player, _dangerobject) => {
+        this.hitsound.play();
+      },
       this.hitByRock,
-      void 0,
-      this
+      void 0
     );
     this.cursors = this.input.keyboard.createCursorKeys();
   }
@@ -129,7 +143,7 @@ export default class LevelOneScene extends Phaser.Scene {
   // energy lost if
   hitByRock = (_player: any, dangerObjects: { destroy: () => void }) => {
     dangerObjects.destroy();
-    this.events.emit('energy', 100);
+    this.events.emit('energy', 20);
   };
   // supply gain if
   pickUpSupply = (_player: any, needs: { destroy: () => void }) => {
