@@ -8,8 +8,8 @@ import UIScene from './scenes/UIScene';
 
 const config = {
   type: Phaser.AUTO,
-  width: 1600,
-  height: 1400,
+  width: 1900,
+  height: 1000,
   physics: {
     default: 'arcade',
     arcade: {
@@ -17,6 +17,7 @@ const config = {
       debug: true,
     },
   },
+  scale: { parent: 'mygame', autoCenter: Phaser.Scale.CENTER_BOTH },
   scene: [
     PreloaderScene,
     LoadingScreenScene,

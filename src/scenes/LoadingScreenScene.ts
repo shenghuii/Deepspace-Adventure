@@ -13,6 +13,6 @@ export default class LoadingScreenScene extends Phaser.Scene {
     button.once('pointerdown', () => {
       this.scene.start('LevelSelectScene');
     });
-    this.cameras.main.centerOn(880, 750);
+    this.cameras.main.centerOn(880, 500);
   }
 }

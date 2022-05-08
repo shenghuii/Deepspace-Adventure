@@ -7,7 +7,7 @@ export default class LevelSelectScene extends Phaser.Scene {
     this.add.image(0, 0, 'space').setOrigin(0, 0);
     this.add.image(400, 270, 'levels').setOrigin(0, 0);
 
-    this.add.text(680, 140, `Select your mission`, {
+    this.add.text(690, 140, `Select your mission`, {
       font: '72px Amatic SC',
     });
 
@@ -55,6 +55,6 @@ export default class LevelSelectScene extends Phaser.Scene {
       font: '48px Amatic SC',
     });
 
-    this.cameras.main.centerOn(880, 750);
+    this.cameras.main.centerOn(880, 490);
   }
 }
