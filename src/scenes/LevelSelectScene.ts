@@ -55,6 +55,6 @@ export default class LevelSelectScene extends Phaser.Scene {
       font: '48px Amatic SC',
     });
 
-    this.cameras.main.centerOn(880, 490);
+    this.cameras.main.centerOn(880, 570);
   }
 }

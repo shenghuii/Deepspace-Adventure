@@ -9,10 +9,10 @@ export default class DangerObject extends Phaser.Physics.Arcade.Image {
   ) {
     console.log(texture, x, y);
     if (x === -1) {
-      x = Phaser.Math.Between(0, 1600);
+      x = Phaser.Math.Between(200, 1800);
     }
     if (y === -1) {
-      y = Phaser.Math.Between(0, 1400);
+      y = Phaser.Math.Between(200, 1600);
     }
     super(scene, x, y, texture);
     this.scene.add.existing(this);

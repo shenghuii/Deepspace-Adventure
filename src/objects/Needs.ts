@@ -9,10 +9,10 @@ export default class Needs extends Phaser.Physics.Arcade.Image {
   ) {
     console.log(texture, x, y);
     if (x === -2) {
-      x = Phaser.Math.Between(0, 1600);
+      x = Phaser.Math.Between(200, 1800);
     }
     if (y === -2) {
-      y = Phaser.Math.Between(0, 1000);
+      y = Phaser.Math.Between(200, 1600);
     }
     super(scene, x, y, texture);
     this.scene.add.existing(this);
