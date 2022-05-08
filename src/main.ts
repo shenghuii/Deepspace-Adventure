@@ -22,8 +22,8 @@ const config = {
     LoadingScreenScene,
     LevelSelectScene,
     LevelOneScene,
-    EndScene,
     UIScene,
+    EndScene,
   ],
 };
 

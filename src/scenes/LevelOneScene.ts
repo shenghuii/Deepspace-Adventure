@@ -123,7 +123,7 @@ export default class LevelOneScene extends Phaser.Scene {
   // energy lost if
   hitByRock = (_player: any, dangerObjects: { destroy: () => void }) => {
     dangerObjects.destroy();
-    this.events.emit('energy', 20);
+    this.events.emit('energy', 100);
   };
   // supply gain if
   pickUpSupply = (_player: any, needs: { destroy: () => void }) => {

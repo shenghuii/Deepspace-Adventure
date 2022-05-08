@@ -6,13 +6,25 @@ export default class EndScene extends Phaser.Scene {
   preload() {}
   create() {
     this.add.image(0, 0, 'space').setOrigin(0, 0);
-    const button1 = this.add.image(800, 300, 'replay').setInteractive();
-    button1.once('pointerdown', () => {
-      this.scene.stop, this.scene.start('LevelOneScene');
+
+    // Replay Button
+    const replayButton = this.add.image(800, 300, 'replay');
+
+    replayButton.setInteractive();
+
+    replayButton.once('pointerdown', () => {
+      this.scene.stop('EndScene');
+      this.scene.start('LevelOneScene');
     });
-    const button2 = this.add.image(800, 500, 'next').setInteractive();
-    button2.once('pointerdown', () => {
-      this.scene.stop(), this.scene.start('LevelSelectScene');
+
+    // Next Level Button
+    const nextLevelButton = this.add.image(800, 500, 'next');
+
+    nextLevelButton.setInteractive();
+
+    nextLevelButton.once('pointerdown', () => {
+      this.scene.stop('EndScene');
+      this.scene.start('LevelSelectScene');
     });
   }
 }

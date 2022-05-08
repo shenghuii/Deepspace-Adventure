@@ -1,16 +1,22 @@
 export default class UIScene extends Phaser.Scene {
   energy = 100;
   supply = 0;
+
   constructor() {
     super({ key: 'UIScene' });
   }
+
   preload() {}
+
   create() {
-    this.add.text(100, 70, `Avoid the rocks and waste debris`, {
-      font: '24px Amatic SC',
+    this.energy = 100;
+    this.supply = 0;
+
+    this.add.text(100, 70, `Avoid the rocks and waste debris!`, {
+      font: '36px Amatic SC',
     });
-    this.add.text(100, 100, `Go find the supply boxes to survive!`, {
-      font: '24px Amatic SC',
+    this.add.text(100, 100, `Go find 3 supply boxes to survive!`, {
+      font: '36px Amatic SC',
     });
     const energyText = this.add.text(100, 150, `Energy: ${this.energy}`, {
       font: '36px Amatic SC',
@@ -20,6 +26,7 @@ export default class UIScene extends Phaser.Scene {
     });
     const hitByRock = this.scene.get('LevelOneScene');
     const pickUpSupply = this.scene.get('LevelOneScene');
+
     pickUpSupply.events.on(
       'supply',
       (value: number) => {
@@ -28,6 +35,7 @@ export default class UIScene extends Phaser.Scene {
       },
       this
     );
+
     hitByRock.events.on(
       'energy',
       (value: number) => {
@@ -38,10 +46,17 @@ export default class UIScene extends Phaser.Scene {
     );
   }
   update() {
-    if (this.energy == 0) {
-      this.scene.stop, this.scene.start('EndScene');
+    if (this.energy <= 0) {
+      console.log('energry = 0');
+      this.scene.stop('LevelOneScene');
+      this.scene.stop('UIScene');
+      this.scene.start('EndScene');
     } else if (this.supply == 2) {
-      this.scene.stop, this.scene.start('EndScene');
+      console.log('supply = 2');
+      // this.scene.stop();
+      this.scene.stop('LevelOneScene');
+      this.scene.stop('UIScene');
+      this.scene.start('EndScene');
     }
   }
 }
