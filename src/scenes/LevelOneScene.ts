@@ -6,6 +6,7 @@ export default class LevelOneScene extends Phaser.Scene {
   needs!: Phaser.Physics.Arcade.Group;
   player!: Phaser.Types.Physics.Arcade.SpriteWithDynamicBody;
   cursors!: Phaser.Types.Input.Keyboard.CursorKeys;
+  gamebgm!: Phaser.Sound.BaseSound;
 
   constructor() {
     super({ key: 'LevelOneScene' });
@@ -16,6 +17,10 @@ export default class LevelOneScene extends Phaser.Scene {
     this.scene.launch('UIScene');
     this.add.image(0, 0, 'space').setOrigin(0, 0);
     this.add.image(1600, 1200, 'startpoint');
+
+    // set music
+    this.gamebgm = this.sound.add('spacebgm', { volume: 0.2 });
+    this.gamebgm.play();
 
     // dangerobject
     this.dangerObjects = this.physics.add.group({
@@ -47,10 +52,11 @@ export default class LevelOneScene extends Phaser.Scene {
     this.needs.get(-2, -2, 'supply');
 
     // player
-    this.player = this.physics.add.sprite(1550, 1400, 'character');
+    this.player = this.physics.add.sprite(1550, 1350, 'character');
     this.player.setBounce(0.4);
-    this.player.setCollideWorldBounds(true);
+    // this.player.setCollideWorldBounds(true);
     this._createAnimations();
+
     this.cameras.main.startFollow(this.player, true);
 
     // add collision
@@ -58,7 +64,7 @@ export default class LevelOneScene extends Phaser.Scene {
     this.physics.add.collider(this.dangerObjects, this.dangerObjects);
     this.physics.add.collider(this.needs, this.needs);
 
-    // add destroy event
+    // add object destroy event
     this.physics.add.overlap(
       this.player,
       this.needs,
